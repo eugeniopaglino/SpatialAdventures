@@ -141,7 +141,7 @@ housesCTDatasf %>%
   theme_minimal()
 ```
 
-<img src="tutorial_files/figure-markdown_github/unnamed-chunk-10-1.png" style="display: block; margin: auto;" />
+<img src="spatialRegTutorial_files/figure-markdown_github/unnamed-chunk-10-1.png" style="display: block; margin: auto;" />
 
 A map of the median household income.
 
@@ -155,7 +155,7 @@ housesCTDatasf %>%
   theme_minimal()
 ```
 
-<img src="tutorial_files/figure-markdown_github/unnamed-chunk-11-1.png" style="display: block; margin: auto;" />
+<img src="spatialRegTutorial_files/figure-markdown_github/unnamed-chunk-11-1.png" style="display: block; margin: auto;" />
 
 ## Basic OLS model
 
@@ -197,7 +197,7 @@ housesDatasf %>%
   theme_minimal()
 ```
 
-<img src="tutorial_files/figure-markdown_github/unnamed-chunk-13-1.png" style="display: block; margin: auto;" />
+<img src="spatialRegTutorial_files/figure-markdown_github/unnamed-chunk-13-1.png" style="display: block; margin: auto;" />
 
 What do think? Is this random? Let’s see what Mr. Moran would say. First
 make a neighborhoods list. I add two links: between San Francisco and
@@ -240,7 +240,7 @@ housesDatasf %>%
     theme_minimal()
 ```
 
-<img src="tutorial_files/figure-markdown_github/unnamed-chunk-16-1.png" style="display: block; margin: auto;" />
+<img src="spatialRegTutorial_files/figure-markdown_github/unnamed-chunk-16-1.png" style="display: block; margin: auto;" />
 
 We can use the neighbor list object to get the average value for the
 neighbors of each polygon.
@@ -256,7 +256,7 @@ ggplot() +
   theme_minimal()
 ```
 
-<img src="tutorial_files/figure-markdown_github/unnamed-chunk-17-1.png" style="display: block; margin: auto;" />
+<img src="spatialRegTutorial_files/figure-markdown_github/unnamed-chunk-17-1.png" style="display: block; margin: auto;" />
 
 ``` r
 neighborsWeights <- nb2listw(neighbors)
@@ -309,7 +309,7 @@ housesDatasf %>%
   theme_minimal()
 ```
 
-<img src="tutorial_files/figure-markdown_github/unnamed-chunk-20-1.png" style="display: block; margin: auto;" />
+<img src="spatialRegTutorial_files/figure-markdown_github/unnamed-chunk-20-1.png" style="display: block; margin: auto;" />
 
 ``` r
 moran.mc(housesDatasf$residualLag, neighborsWeights, 999)
@@ -320,7 +320,7 @@ moran.mc(housesDatasf$residualLag, neighborsWeights, 999)
 ## weights: neighborsWeights  
 ## number of simulations + 1: 1000 
 ## 
-## statistic = -0.016, observed rank = 525, p-value = 0.475
+## statistic = -0.016, observed rank = 517, p-value = 0.483
 ## alternative hypothesis: greater
 ```
 
@@ -352,7 +352,7 @@ housesDatasf %>%
   theme_minimal()
 ```
 
-<img src="tutorial_files/figure-markdown_github/unnamed-chunk-23-1.png" style="display: block; margin: auto;" />
+<img src="spatialRegTutorial_files/figure-markdown_github/unnamed-chunk-23-1.png" style="display: block; margin: auto;" />
 
 ``` r
 moran.mc(housesDatasf$residualSpErr, neighborsWeights, 999)
@@ -363,7 +363,7 @@ moran.mc(housesDatasf$residualSpErr, neighborsWeights, 999)
 ## weights: neighborsWeights  
 ## number of simulations + 1: 1000 
 ## 
-## statistic = 0.039033, observed rank = 743, p-value = 0.257
+## statistic = 0.039033, observed rank = 753, p-value = 0.247
 ## alternative hypothesis: greater
 ```
 

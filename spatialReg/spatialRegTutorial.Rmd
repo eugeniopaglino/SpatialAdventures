@@ -40,7 +40,7 @@ rm(list=ls())
 
 We read the data from the `rspatial` library.
 
-```{r echo=T, cache=T}
+```{r echo=T}
 housesCTData <- sp_data('houses2000')
 
 ```
@@ -161,7 +161,7 @@ housesCTDatasf %>%
 
 A map of the median household income.
 
-```{r, cache=T, warning=FALSE, message=FALSE}
+```{r warning=FALSE, message=FALSE}
 
 housesCTDatasf %>%
   mutate(group = ntile(medHHinc,n=nGroups)) %>%
